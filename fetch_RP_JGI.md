@@ -31,7 +31,7 @@ parseRibosomalProteins.JGI.py "*/*.genes.faa" batch1.screened batch1.screened.ID
 Add sequences to alignment
 
 ```bash
-alignmentFolder="/home/domeni/projects_b2016308/TOL/Anantharaman_et.al_NatComm_RP_alignments"
+alignmentFolder="/pica/v9/b2016308_nobackup/projects/TOL/Anantharaman_et.al_NatComm_RP_alignments"
 
 mafft --thread 16 \
 --inputorder \
