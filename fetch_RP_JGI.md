@@ -28,9 +28,14 @@ proteins to download: L2, L3, L4, L5, L6, L14, L15, L16, L18, L22, L24, S3, S8, 
 parseRibosomalProteins.JGI.py "*/*.genes.faa" batch1.screened batch1.screened.IDs
 ```
 
-Add sequences to alignment
+Add sequences to alignment (run from interactive development node)
 
 ```bash
+# salloc -p devel -t 1:00:00 -A b2016308
+
+module load bionfo-tools
+module load MAFFT
+
 alignmentFolder="/pica/v9/b2016308_nobackup/projects/TOL/Anantharaman_et.al_NatComm_RP_alignments"
 
 mafft --thread 16 \
