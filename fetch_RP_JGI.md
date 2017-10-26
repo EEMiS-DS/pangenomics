@@ -84,3 +84,5 @@ export PATH=/proj/b2016308/glob/:$PATH
 concatenateMSA.py
 EOF
 ```
+
+And remove residual Archaeal sequences :)
