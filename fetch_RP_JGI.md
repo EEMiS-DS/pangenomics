@@ -33,13 +33,16 @@ Add sequences to alignment (run from interactive development node)
 ```bash
 # salloc -p devel -t 1:00:00 -A b2016308
 
+alignmentFolder="/pica/v9/b2016308_nobackup/projects/TOL/Anantharaman_et.al_NatComm_RP_alignments/noArk"
+wdir="/pica/v9/b2016308_nobackup/projects/JGI_CSP_data/SAG"
+finalOutDir="/pica/v9/b2016308_nobackup/projects/JGI_CSP_analyses/phylogenySAG"
+mkdir -p $finalOutDir
+
 module load bionfo-tools
 module load MAFFT
 
-alignmentFolder="/pica/v9/b2016308_nobackup/projects/TOL/Anantharaman_et.al_NatComm_RP_alignments"
-
 mafft --thread 16 \
 --inputorder \
---add batch1.screened_Ribosomal_L14.fa \
---auto $alignmentFolder/L14_NR_alignment.fasta > batch1.screened_Ribosomal_L14.afa
+--add ${wdir}/batch1.screened_Ribosomal_L14.fa \
+--auto ${alignmentFolder}/L14_NR_alignment.fasta > ${finalOutDir}/batch1.screened_Ribosomal_L14.afa
 ```
