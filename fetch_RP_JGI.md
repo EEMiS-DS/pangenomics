@@ -71,3 +71,16 @@ mafft --thread 16 \
 --add ${wdir}/batch1.screened_Ribosomal_L14.fa \
 --auto ${alignmentFolder}/L14_NR_alignment.fasta > ${finalOutDir}/batch1.screened_Ribosomal_L14.afa
 ```
+
+Concatenate MSAs
+
+```bash
+sbatch -p core -t 5:00:00 -A b2016308 \
+-J MSA -o MSA.out -e MSA.err \
+--mail-type=ALL --mail-user=domenico.simone@lnu.se,annalisa.16@hotmail.it<<'EOF'
+#!/bin/bash
+ 
+export PATH=/proj/b2016308/glob/:$PATH
+concatenateMSA.py
+EOF
+```
