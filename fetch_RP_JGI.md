@@ -28,6 +28,31 @@ proteins to download: L2, L3, L4, L5, L6, L14, L15, L16, L18, L22, L24, S3, S8, 
 parseRibosomalProteins.JGI.py "*/*.genes.faa" batch1.screened batch1.screened.IDs
 ```
 
+Delete all Archeal seqs from alignments but two (outgroups)
+
+```python
+from Bio import SeqIO
+import glob
+
+ark2keep = ["Archaea_Thaumarchaeota_Thaumarchaeota_archaeon_strain_BS4", "Archaea_Euryarchaeota_Methanosarcinales_5m_scaffold_1030"]
+
+def removeArk(seqFile, arkList, ark2keep):
+    seqHandle = SeqIO.parse(seqFile, 'fasta')
+    outHandle = open("./noArk/" + seqFile.replace('.fasta', '.noArk.fasta'), 'w')
+    for s in seqHandle:
+        if s.id in arkList and s.id not in ark2keep:
+            continue
+        else:
+            outHandle.write('>%s\n%s\n' % (s.id, str(s.seq)))
+    outHandle.close()
+
+arkList = [i.split()[0] for i in open("arkID", 'r').readlines()]
+
+seqFiles = glob.glob("*_NR_alignment.fasta")
+for seqFile in seqFiles:
+    removeArk(seqFile, arkList, ark2keep)
+```
+
 Add sequences to alignment (run from interactive development node)
 
 ```bash
