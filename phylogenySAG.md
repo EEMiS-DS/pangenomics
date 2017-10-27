@@ -94,7 +94,7 @@ to test FastTree. Test with both.
 - Without outgroup...
 
 ```bash
-sbatch -p core -t 15:00:00 -A b2016308 \
+sbatch -p core -t 1:00:00 -A b2016308 \
 -J out_noArk_no_outgroup -o out_noArk_no_outgroup.out -e out_noArk_no_outgroup.err \
 --mail-type=ALL --mail-user=domenico.simone@lnu.se,annalisa.16@hotmail.it<<'EOF'
 #!/bin/bash
@@ -104,7 +104,7 @@ module load FastTree
 export PATH=/proj/b2016308/glob/Gblocks_0.91b/:$PATH
 
 # remove too gapped positions with Gblocks
-#Gblocks out_noArk_no_outgroup.shortNames.fasta -d=y -b1=2876 -b2=2876 -b4=2 -b5=a
+Gblocks out_noArk_no_outgroup.shortNames.fasta -d=y -b1=2876 -b2=2876 -b4=2 -b5=a
 
 # run FastTree
 FastTree out_noArk_no_outgroup.shortNames.fasta-gb > out_noArk_no_outgroup.shortNames.fasta-gb.singleThread.tree
@@ -124,7 +124,7 @@ module load FastTree
 export PATH=/proj/b2016308/glob/Gblocks_0.91b/:$PATH
 
 # remove too gapped positions with Gblocks
-#Gblocks out_noArk_outgroup.shortNames.fasta -d=y -b1=2877 -b2=2877 -b4=2 -b5=a
+Gblocks out_noArk_outgroup.shortNames.fasta -d=y -b1=2877 -b2=2877 -b4=2 -b5=a
 
 # run FastTree
 FastTree out_noArk_outgroup.shortNames.fasta-gb > out_noArk_outgroup.shortNames.fasta-gb.singleThread.tree
