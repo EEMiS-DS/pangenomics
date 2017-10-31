@@ -81,7 +81,7 @@ sbatch -p core -t 5:00:00 -A b2016308 \
 #!/bin/bash
  
 export PATH=/proj/b2016308/glob/:$PATH
-concatenateMSA.py
+concatenateMSA.py "*.afa"
 EOF
 ```
 
