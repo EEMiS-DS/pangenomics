@@ -130,3 +130,4 @@ Gblocks out_noArk_outgroup.shortNames.fasta -d=y -b1=2877 -b2=2877 -b4=2 -b5=a
 FastTree out_noArk_outgroup.shortNames.fasta-gb > out_noArk_outgroup.shortNames.fasta-gb.singleThread.tree
 EOF
 ```
+
